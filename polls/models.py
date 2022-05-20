@@ -22,3 +22,10 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+class Product(models.Model):
+    price = models.FloatField(default=0)
+    name = models.CharField(max_length=100)
+    description = models.CharField()
+
+
