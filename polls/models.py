@@ -27,5 +27,26 @@ class Product(models.Model):
     price = models.FloatField(default=0)
     name = models.CharField(max_length=100)
     description = models.CharField()
+    color = models.CharField() #variants
+    size = models.CharField() #variants
+    
+    def __str__(self):
+        return self.product_text
 
+class Customer(models.Model):
+    email = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=100) #float?
+    credit_number = models.IntegerField(default=0)
+    password = models.CharField(max_length=100) #float?
 
+    def __str__(self):
+        return self.customer_text
+
+class Admin(models.Model):
+    email = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    password = models.CharField(max_length=100) #float?
+    
+    def __str__(self):
+        return self.admin_text
