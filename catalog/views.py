@@ -8,7 +8,7 @@ from. models import Product
 
 def index(request):
     latest_product_list = Product.objects.order_by('name')[:5]
-    template = loader.get_template('polls/index.html')
+    template = loader.get_template('catalog/index.html')
     context = {'latest_product_list': latest_product_list,}
     return HttpResponse(template.render(context, request))
 # goes to template aka html
@@ -19,7 +19,7 @@ def detail(request, product_id):
 
 def collection(request, product_id):
     latest_product_list = Product.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('polls/index.html')
+    template = loader.get_template('catalog/index.html')
     context = {'latest_product_list': latest_product_list,}
     return HttpResponse("This is the first collection" % template.render(context, request))
 
