@@ -9,29 +9,30 @@ class Question(models.Model):
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
-        return self.question_text
+       return self.question_text
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+       return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
         
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+   question = models.ForeignKey(Question, on_delete=models.CASCADE)
+   choice_text = models.CharField(max_length=200)
+   votes = models.IntegerField(default=0)
 
-    def __str__(self):
-        return self.choice_text
+   def __str__(self):
+       return self.choice_text
 
 class Product(models.Model):
     price = models.FloatField(default=0)
     name = models.CharField(max_length=100)
-    description = models.CharField()
-    color = models.CharField() #variants
-    size = models.CharField() #variants
+    description = models.CharField(max_length=150)
+    color = models.CharField(max_length=40) #variants
+    size = models.CharField(max_length=40) #variants
+    
     
     def __str__(self):
-        return self.product_text
+        return self.name
 
 class Customer(models.Model):
     email = models.CharField(max_length=100)
@@ -41,7 +42,7 @@ class Customer(models.Model):
     password = models.CharField(max_length=100) #float?
 
     def __str__(self):
-        return self.customer_text
+        return self.name
 
 class Admin(models.Model):
     email = models.CharField(max_length=100)
@@ -49,4 +50,4 @@ class Admin(models.Model):
     password = models.CharField(max_length=100) #float?
     
     def __str__(self):
-        return self.admin_text
+        return self.name

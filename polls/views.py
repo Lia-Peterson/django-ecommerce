@@ -7,13 +7,7 @@ from. models import Admin
 from. models import Product
 
 def index(request):
-    latest_product_list = Product.objects.order_by('-pub_date')[:5]
-    output = ', '.join([p.product_text for p in latest_product_list])
-    return HttpResponse(output)
-
-
-def index(request):
-    latest_product_list = Product.objects.order_by('-pub_date')[:5]
+    latest_product_list = Product.objects.order_by('name')[:5]
     template = loader.get_template('polls/index.html')
     context = {'latest_product_list': latest_product_list,}
     return HttpResponse(template.render(context, request))
@@ -29,5 +23,5 @@ def collection(request, product_id):
     context = {'latest_product_list': latest_product_list,}
     return HttpResponse("This is the first collection" % template.render(context, request))
 
-def buy (request, product_id):
+def buy(request, product_id):
     return HttpResponse("%s has been added to your cart." % product_id)
