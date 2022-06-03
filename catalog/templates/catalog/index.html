@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title> Tableware Inc. </title>
+    </head>
+
+    <body>
+        <h1> Products we sell: </h1>
+        <h3> Dishes: </h3>
+        <ul>
+            {% for product in latest_product_list %}
+                <li><a href="/catalog/{{ product.id }}/">{{ product.name }}</a></li>
+            {% endfor %}
+        </ul>    
+    </body>
+
+</html>
+
+
+<!--{% if latest_product_list %}
+    <ul>
+    {% for product in latest_product_list %}
+        <li><a href="/catalog/{{ product.id }}/">{{ product.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No products are available.</p>
+{% endif %}
