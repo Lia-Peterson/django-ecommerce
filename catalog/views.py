@@ -1,10 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render
-
-from. models import Customer
-from. models import Admin
-from. models import Product
+from .models import (Customer, Product, Admin, OrderProduct)
 
 def index(request):
     latest_product_list = Product.objects.order_by('name')[:5]
