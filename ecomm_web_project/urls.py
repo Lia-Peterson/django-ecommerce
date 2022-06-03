@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from catalog import apps
 urlpatterns = [
-    path('', include('core.url', namespace='core')), 
+    path('', include('core')), 
     path('catalog/', include('catalog.urls')), # importing urls from catalog directory
     path('admin/', admin.site.urls),
 ]
